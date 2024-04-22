@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Поиск всех доходов от пользователя</title>
+</head>
+<body>
+<div th:replace="logout"> </div>
+<br>
+<form action="#" th:action="@{/findIncomes}" th:object="${emailForm}" method="post">
+    <input type="text" th:field="*{email}" placeholder="Введите email"/>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"></span>
+    <button type="submit">Найти</button>
+</form>
+</body>
+</html>

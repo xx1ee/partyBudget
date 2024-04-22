@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:replace="logout"> </div>
+<br>
+<h1>Введите сумму пожертвования:</h1>
+<form action="#" th:action="@{/donate}" th:object="${income}" method="post">
+    <input type="number" name="amount" step="0.01" th:field="*{amount}" required/>
+    <span th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" style="color: red;"></span><br><br>
+    <button type="submit">Пожертвовать партии</button>
+</form>
+</body>
+</html>

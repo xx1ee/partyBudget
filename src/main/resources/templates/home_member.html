@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="logout"> </div>
+<br>
+<h1>Добро пожаловать, член партии!</h1>
+<p>Выбери действие:</p>
+<form th:action="@{/donate}" method="get">
+    <button type="submit">Стать спонсором партии</button>
+</form>
+<form th:action="@{/receivingMoneyApplication}" method="get">
+    <button type="submit">Подать заявку на взятие денег из бюджета</button>
+</form>
+<form th:action="@{/wallet}" method="get">
+    <button type="submit">Кошелек</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:replace="logout"> </div>
+<br>
+<h1>Все доходы от пользователя</h1>
+<table>
+    <div th:if="${#lists.isEmpty(incomes)}">
+        <p>Нет доходов от пользователя.</p>
+    </div>
+    <div th:if="${incomes.size() > 0}">
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Income</th>
+        </tr>
+        <tr th:each="income : ${incomes}">
+            <td th:text="${income.user.email}"></td>
+            <td th:text="${income.user.name}"></td>
+            <td th:text="${income.user.lastname}"></td>
+            <td th:text="${income.money}"></td>
+        </tr>
+    </div>
+</table>
+</body>
+</html>

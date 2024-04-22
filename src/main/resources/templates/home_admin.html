@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="logout"> </div>
+<br>
+<h1>Добро пожаловать, администратор!</h1>
+<p>Выбери действие:</p>
+<form th:action="@{/receivingMoneyApplicationRequests}" method="get">
+    <button type="submit">Запросы на получение денег из бюджета</button>
+</form>
+<form th:action="@{/members}" method="get">
+    <button type="submit">Члены партии</button>
+</form>
+<form th:action="@{/requests}" method="get">
+    <button type="submit">Запросы на вступление в партию</button>
+</form>
+<form th:action="@{/findIncomes}" method="get">
+    <button type="submit">Все доходы от пользователя</button>
+</form>
+<form th:action="@{/findExpenses}" method="get">
+    <button type="submit">Все расходы на пользователя</button>
+</form>
+<form th:action="@{/exportIncomes}" method="post">
+    <button type="submit">Выгрузить доходы в файл</button>
+</form>
+<form th:action="@{/exportExpenses}" method="post">
+    <button type="submit">Выгрузить расходы в файл</button>
+</form>
+<form th:action="@{/wallet}" method="get">
+    <button type="submit">Кошелек</button>
+</form>
+</body>
+</html>

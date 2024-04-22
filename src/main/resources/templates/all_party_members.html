@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div th:replace="logout"> </div>
+<br>
+<h1>Члены партии</h1>
+<table>
+  <tr>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Action</th>
+  </tr>
+  <div th:if="${#lists.isEmpty(requests)}">
+    <p>В партии нет участников.</p>
+  </div>
+  <div th:if="${requests.size() > 0}">
+    <tr th:each="user : ${requests}">
+      <td th:text="${user.name}"></td>
+      <td th:text="${user.lastname}"></td>
+      <td th:text="${user.email}"></td>
+      <td>
+        <form method="post" th:action="@{/deleteMember}">
+          <input type="hidden" name="id" th:value="${user.getId()}">
+          <button type="submit">Удалить</button>
+        </form>
+      </td>
+    </tr>
+  </div>
+</table>
+</body>
+</html>

@@ -41,9 +41,9 @@
 
 ## Как запустить?
 - Установка IntelliJ IDEA
+- Установка pgAdmin
 - импортировать репозиторий с github к себе
 - установить JDK 21(BellSoft Liberica version 21.0.2)
-- установить pgAdmin
 - сделан дамп бд, который лежит по пути - src/main/resources/dump, импортировать дамп себе в pgAdmin
 
 

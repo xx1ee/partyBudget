@@ -7,17 +7,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.croc.kochetova.partyBudget.model.User;
 import ru.croc.kochetova.partyBudget.repository.UserRepository;
+import ru.croc.kochetova.partyBudget.service.UserDetailService;
 
 @Controller
 public class WalletController {
-    private final UserRepository userRepository;
+    private final UserDetailService userDetailService;
     @Autowired
-    public WalletController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public WalletController(UserDetailService userDetailService) {
+        this.userDetailService = userDetailService;
     }
     @GetMapping("/wallet")
     public String wallet(Model model) {
-        User user = userRepository.findByEmailIgnoreCase(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+        User user = userDetailService.findByEmailIgnoreCase(SecurityContextHolder.getContext().getAuthentication().getName()).get();
         model.addAttribute("user", user);
         return "wallet";
     }

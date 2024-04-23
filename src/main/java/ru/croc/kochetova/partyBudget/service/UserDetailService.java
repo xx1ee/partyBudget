@@ -13,6 +13,7 @@ import ru.croc.kochetova.partyBudget.repository.UserRepository;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -49,5 +50,8 @@ public class UserDetailService implements UserDetailsService {
         Random random = new Random();
         double randomNumber = random.nextDouble() * 4999999 + 1;
         return new BigDecimal(randomNumber).setScale(2, BigDecimal.ROUND_HALF_UP);
+    }
+    public Optional<User> findByEmailIgnoreCase(String email) {
+        return userRepository.findByEmailIgnoreCase(email);
     }
 }
